@@ -9,29 +9,29 @@ The containers are created as follow:
 lxc-create -n server -t download -- -d alpine -r 3.4 -a armhf<br/>
 lxc-create -n sendNumber -t download -- -d alpine -r 3.4 -a armhf
 
-then we start the server container:
-lxc-start -n server
-Then we open the server console:
+then we start the server container:<br/>
+lxc-start -n server<br/>
+Then we open the server console:<br/>
 lxc-attach -n server
 
-Then we update package list and install needed packages in the container:
-apk update
-apk add lighttpd php5 php5-cgi php5-curl php5-fpm
+Then we update package list and install needed packages in the container:<br/>
+apk update<br/>
+apk add lighttpd php5 php5-cgi php5-curl php5-fpm<br/>
 
 then again in the server container, we  uncomment the include "mod_fastcgi.conf" line in /etc/lighttpd/lighttpd.conf
 
-And we start the lighttpd service:
-rc-update add lighttpd default
+And we start the lighttpd service:<br/>
+rc-update add lighttpd default<br/>
 openrc
 
 In the sendNumber container we create the file rng.sh in /bin directory.
 
-Creating bridge between the containers to let them communicate to each other:
- In the directory /etc/lxc we create a default.conf file with this content:
+Creating bridge between the containers to let them communicate to each other:<br/>
+In the directory /etc/lxc we create a default.conf file with this content:
  
-lxc.network.type = veth
-lxc.network.link = lxcbr0
-lxc.network.flags = up
+lxc.network.type = veth<br/>
+lxc.network.link = lxcbr0<br/>
+lxc.network.flags = up<br/>
 lxc.network.hwaddr = 00:16:3e:xx:xx:xx
 
 Where lxcbr0 is the name of our bridge on the host.
@@ -48,8 +48,8 @@ sudo iptables -t nat -A PREROUTING -i enx00e04c534458 -p tcp --dport 80 -j DNAT 
 
 We can now reach our server container's port 8080 through our raspberry host's 80 port.
 
-And we have executed the socat command:
-socat -v -v tcp-listen:8080,fork,reuseaddr exec:"sh /bin/rng.sh"
+And we have executed the socat command:<br/>
+socat -v -v tcp-listen:8080,fork,reuseaddr exec:"sh /bin/rng.sh"<br/>
 In the sendNumber container to send random numbers to the server webpage in the server container through 8080 port.
 With the public raspberry's IP we can reach the webpage with random numbers displayed.
 
