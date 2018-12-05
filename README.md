@@ -3,7 +3,7 @@
 For this assigment we have created 2 containers with LXC.
 The first container is named "server" and it hosts a lighttpd server with the index.php file in the directory /var/wwww/localhost/htdocs.
 The second container is named "sendNumber" and in the /bin directory there is the sh file named "rng" which provides random numbers.
-
+\n
 The containers are created as follow:
 
 lxc-create -n server -t download -- -d alpine -r 3.4 -a armhf
