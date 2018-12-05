@@ -1,4 +1,8 @@
-# Portfolio 2 Leo1: Pauline Steiner (paste18@student.sdu.dk), Mathieu Daudin (madau18@student.sdu.dk), Robin Mariaccia (romar18@student.sdu.dk)
+# Portfolio 2 Leo1
+
+<h1>Authors</h1>
+<p>
+Pauline Steiner (paste18@student.sdu.dk)<br> Mathieu Daudin (madau18@student.sdu.dk)<br> Robin Mariaccia (romar18@student.sdu.dk)</p>
 
 <h1>Introduction</h1>
 
