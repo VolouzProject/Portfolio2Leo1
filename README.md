@@ -6,7 +6,7 @@ The second container is named "sendNumber" and in the /bin directory there is th
 
 The containers are created as follow:
 
-lxc-create -n server -t download -- -d alpine -r 3.4 -a armhf
+lxc-create -n server -t download -- -d alpine -r 3.4 -a armhf<br/>
 lxc-create -n sendNumber -t download -- -d alpine -r 3.4 -a armhf
 
 then we start the server container:
