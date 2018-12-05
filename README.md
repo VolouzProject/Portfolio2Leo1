@@ -10,13 +10,13 @@ The second container is named "sendNumber" and in the /bin directory there is th
 
 The containers are created as follow:
 
-<code>lxc-create -n server -t download -- -d alpine -r 3.4 -a armhf</code><br/>
-<code>lxc-create -n sendNumber -t download -- -d alpine -r 3.4 -a armhf</code>
+<code>sudo lxc-create -n server -t download -- -d alpine -r 3.4 -a armhf</code><br/>
+<code>sudo lxc-create -n sendNumber -t download -- -d alpine -r 3.4 -a armhf</code>
 
 then we start the server container:<br/>
-<code>lxc-start -n server</code><br/>
+<code>sudo lxc-start -n server</code><br/>
 Then we open the server console:<br/>
-<code>lxc-attach -n server</code>
+<code>sudo lxc-attach -n server</code>
 
 Then we update package list and install needed packages in the container:<br/>
 <code>apk update</code><br/>
@@ -25,8 +25,8 @@ Then we update package list and install needed packages in the container:<br/>
 then again in the server container, we  uncomment the include "mod_fastcgi.conf" line in /etc/lighttpd/lighttpd.conf
 
 And we start the lighttpd service:<br/>
-<code>rc-update add lighttpd default<br/>
-openrc</code>
+<code>rc-update add lighttpd default</code><br/>
+<code>openrc</code>
 
 In the sendNumber container we create the file rng.sh in /bin directory.
 
@@ -35,10 +35,10 @@ In the sendNumber container we create the file rng.sh in /bin directory.
 Creating bridge between the containers to let them communicate to each other:<br/>
 In the directory /etc/lxc we create a default.conf file with this content:
  
-<code>lxc.network.type = veth<br/>
-lxc.network.link = lxcbr0<br/>
-lxc.network.flags = up<br/>
-lxc.network.hwaddr = 00:16:3e:xx:xx:xx</code>
+<code>lxc.network.type = veth</code><br/>
+<code></code>lxc.network.link = lxcbr0</code><br/>
+<code>lxc.network.flags = up</code><br/>
+<code>lxc.network.hwaddr = 00:16:3e:xx:xx:xx</code>
 
 Where lxcbr0 is the name of our bridge on the host.
 
