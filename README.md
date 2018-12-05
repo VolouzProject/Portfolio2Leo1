@@ -37,7 +37,7 @@ In the sendNumber container we create the file rng.sh in /bin directory.
 <h1>Setting bridge</h1>
 
 Creating bridge between the containers to let them communicate to each other:<br/>
-In the directory /etc/lxc we create a default.conf file with this content:
+In the directory of raspberry /etc/lxc we create a default.conf file with this content:
  
 <code>lxc.network.type = veth</code><br/>
 <code>lxc.network.link = lxcbr0</code><br/>
